@@ -3,8 +3,7 @@
   "description" : "Description",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2024-11-15T21:32:57Z",
+  "lastModifiedDate" : "2024-11-17T01:56:34Z",
   "model" : {
     "people" : [ {
       "description" : "A patient who enters blood pressure measurements",
@@ -360,7 +359,7 @@
       } ]
     }, {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -369,30 +368,26 @@
         "vertices" : false
       },
       "containerId" : "13",
-      "dimensions" : {
-        "height" : 1300,
-        "width" : 3100
-      },
       "elements" : [ {
         "id" : "4",
-        "x" : 2450,
-        "y" : 499
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "5",
-        "x" : 200,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "12",
-        "x" : 200,
-        "y" : 799
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "14",
-        "x" : 950,
-        "y" : 499
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "15",
-        "x" : 1700,
-        "y" : 499
+        "x" : 0,
+        "y" : 0
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "MeasurementService",
@@ -410,7 +405,6 @@
     "configuration" : {
       "branding" : { },
       "lastSavedView" : "MeasurementService",
-      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "color" : "#ffffff",
@@ -443,7 +437,7 @@
     },
     "containerViews" : [ {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -451,38 +445,34 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
-      "dimensions" : {
-        "height" : 1500,
-        "width" : 3070
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 200,
-        "y" : 200
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "2",
-        "x" : 200,
-        "y" : 900
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "4",
-        "x" : 2400,
-        "y" : 600
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "5",
-        "x" : 900,
-        "y" : 300
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "6",
-        "x" : 1650,
-        "y" : 300
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "12",
-        "x" : 900,
-        "y" : 900
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "13",
-        "x" : 1650,
-        "y" : 900
+        "x" : 0,
+        "y" : 0
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "BloodPressureSystem",
@@ -508,7 +498,7 @@
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -516,22 +506,18 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
-      "dimensions" : {
-        "height" : 1500,
-        "width" : 1550
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 200,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "2",
-        "x" : 200,
-        "y" : 899
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "3",
-        "x" : 900,
-        "y" : 599
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "SystemContext",
