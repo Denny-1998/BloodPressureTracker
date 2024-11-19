@@ -41,6 +41,7 @@ services:
     ports: 
       - "5004:8080"
       - "5005:8081"
+      - "5090:5090"
     depends_on:
       - measurementservice
       - rabbitmq

@@ -4,33 +4,43 @@
     ViewData["Title"] = "Measurement List";
 }
 
-<h2>Measurement List</h2>
+<h1>Measurement List</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Patient SSN</th>
-            <th>DateTime</th>
-            <th>Systolic</th>
-            <th>Diastolic</th>
-            <th>Seen</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var measurement in Model.Measurements)
-        {
+<!-- Patient SSN Input -->
+<form method="post">
+    <label for="patientSSN">Enter Patient SSN:</label>
+    <input type="text" id="patientSSN" value="@Model.PatientSSN" />
+    <button type="submit">Get Measurements</button>
+</form>
+
+<!-- Display Measurements -->
+@if (Model.Measurements != null && Model.Measurements.Any())
+{
+    <table>
+        <thead>
             <tr>
-                <td>@measurement.PatientSSN</td>
-                <td>@measurement.DateTime</td>
-                <td>@measurement.Systolic</td>
-                <td>@measurement.Diastolic</td>
-                <td>@measurement.Seen</td>
-                <td>
-                    <a href="/Measurement/Edit/@measurement.PatientSSN">Edit</a> |
-                    <a href="/Measurement/Delete/@measurement.PatientSSN">Delete</a>
-                </td>
+                <th>Measurement ID</th>
+                <th>Date</th>
+                <th>Systolic</th>
+                <th>Diastolic</th>
+                <th>Seen</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var measurement in Model.Measurements)
+            {
+                <tr>
+                    <td>@measurement.Id</td>
+                    <td>@measurement.DateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@measurement.Systolic</td>
+                    <td>@measurement.Diastolic</td>
+                    <td>@measurement.Seen</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.Measurements != null && !Model.Measurements.Any())
+{
+    <p>No measurements found for the provided Patient SSN.</p>
+}

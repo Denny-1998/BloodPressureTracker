@@ -1,21 +1,47 @@
-using DoctorUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using DoctorUI.Models;
 
 namespace DoctorUI.Pages
 {
     public class MeasurementListModel : PageModel
     {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public MeasurementListModel(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        [BindProperty]
+        public string PatientSSN { get; set; }
+
         public List<Measurement> Measurements { get; set; }
 
-        public void OnGet()
+        // This method will be triggered when the form is submitted
+        public async Task OnPostAsync()
         {
-            // This should ideally come from a database or an API call
-            Measurements = new List<Measurement>
-        {
-            new Measurement { PatientSSN = "123-45-6789", DateTime = DateTime.Now, Systolic = 120, Diastolic = 80, Seen = false },
-            new Measurement { PatientSSN = "987-65-4321", DateTime = DateTime.Now, Systolic = 130, Diastolic = 85, Seen = true }
-        };
+            if (string.IsNullOrWhiteSpace(PatientSSN))
+            {
+                Measurements = new List<Measurement>(); // Clear if no Patient SSN
+                return;
+            }
+
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync($"http://localhost:5000/api/Measurement/{PatientSSN}"); // Ensure this API URL is correct
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                Measurements = JsonConvert.DeserializeObject<List<Measurement>>(jsonResponse);
+            }
+            else
+            {
+                Measurements = new List<Measurement>(); // Handle failure case
+            }
         }
     }
 }
