@@ -1,0 +1,36 @@
+﻿@page
+@model DoctorUI.Pages.MeasurementListModel
+@{
+    ViewData["Title"] = "Measurement List";
+}
+
+<h2>Measurement List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Patient SSN</th>
+            <th>DateTime</th>
+            <th>Systolic</th>
+            <th>Diastolic</th>
+            <th>Seen</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var measurement in Model.Measurements)
+        {
+            <tr>
+                <td>@measurement.PatientSSN</td>
+                <td>@measurement.DateTime</td>
+                <td>@measurement.Systolic</td>
+                <td>@measurement.Diastolic</td>
+                <td>@measurement.Seen</td>
+                <td>
+                    <a href="/Measurement/Edit/@measurement.PatientSSN">Edit</a> |
+                    <a href="/Measurement/Delete/@measurement.PatientSSN">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

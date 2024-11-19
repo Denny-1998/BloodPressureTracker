@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeasurementService", "Measu
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{22EF5B06-B25C-4EC7-A945-F065CF1D1220}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorUI", "DoctorUI\DoctorUI.csproj", "{0643CD73-161F-41F3-B49E-0D4BFAFD1C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorUI", "DoctorUI\DoctorUI.csproj", "{0643CD73-161F-41F3-B49E-0D4BFAFD1C57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
