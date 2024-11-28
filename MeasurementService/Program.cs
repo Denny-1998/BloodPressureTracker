@@ -24,10 +24,14 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<MeasurementDbContext>();
-
-    //if (!dbContext.Database.EnsureCreated())
-        //if (dbContext.Database.GetPendingMigrations().Any())
-            //dbContext.Database.Migrate();
+    try
+    {
+        dbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Migration failed: {ex.Message}");
+    }
 }
 
 // Configure the HTTP request pipeline.
