@@ -1,6 +1,7 @@
 using MeasurementService.Logic;
 using MeasurementService.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.FeatureManagement;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<MeasurementDbContext>(options =>
 
 builder.Services.AddScoped<MeasurementHandler>();
 builder.Services.AddSingleton<RabbitMqHandler>();
+
+builder.Services.AddFeatureManagement();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

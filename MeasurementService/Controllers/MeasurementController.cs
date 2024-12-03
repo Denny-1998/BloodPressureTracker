@@ -18,10 +18,28 @@ namespace MeasurementService.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMeasurement(int id)
         {
-            Measurement measurement = await _handler.GetMeasurementById(id);
-
-
-            return Ok(measurement);
+            int retries = 5;
+            while (retries > 0)
+            {
+                try
+                {
+                    Measurement measurement = await _handler.GetMeasurementById(id);
+                    return Ok(measurement);
+                }
+                catch (Exception ex)
+                {
+                    retries--;
+                    if (retries == 0)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return BadRequest("The database could not be reached. Please try again later.");
+                    }
+                    Console.WriteLine("Database not reached, retrying in 5 seconds");
+                    Thread.Sleep(5000);
+                    
+                }
+            }
+            return BadRequest();
         }
     }
 }
