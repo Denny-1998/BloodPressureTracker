@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.FeatureManagement.Mvc;
 using PatientService.Logic;
 using PatientService.Models;
 
@@ -15,6 +16,7 @@ namespace PatientService.Controllers
         }
 
 
+        [FeatureGate("getPatient")]
         [HttpGet("{ssn}")]
         public async Task<IActionResult> Get(string ssn)
         {
